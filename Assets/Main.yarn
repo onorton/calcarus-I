@@ -1,0 +1,473 @@
+﻿title: Day1Morning
+tags:
+position: -43,-275
+---
+<< set_time Time "Day 1 - Morning">>
+The humans and the cephalons have come to blows recently over the settlement of the Calcarus system's lone planet, designated as Calcarus I.
+About a year ago, the humans had apparently attempted to settle the planet, being the first to send a manned ship to the system.
+However, a cephalon military ship bombarded the settlement, killing all of the human settlers.
+The cephalons claim that it was a rogue captain, who has since been punished. They still claim that the planet is free for them to settle as there is no longer a settlement.
+There have been skirmishes recently around the Calcarus system, but other members of the Galactic Council are concerned that it may turn into a full-blown war.
+As both civilisations are members of the council, they have agreed to talks to come to a peace deal, though neither is likely to budge.
+<< fade_in Nai'thar >>
+Hive Leader Nai'thar represents the cephalons...
+Nai'thar: Why do we bother with these talks?
+<< fade_in Hadoran >>
+...while the newly elected President Julius Hadoran represents the humans.
+Hadoran: Let's get this over with.
+Both are recent members of the council, with the cephalons joining a couple hundred standard years ago.
+The humans only joined about one human generation ago.
+You are the hylaxian Fenwick, chairman of the Galactic Council's committee on interplanetary relations and the mediator of the talks.
+You will need to convince both parties to come to some sort of agreement, otherwise this might be the first case of a war within the council starting under your watch in nearly a century.
+As neither party is likely to give up anything on their own accord, you will need to suggest possible concessions as well as probe into each of their claims on the planet.
+Remember to be diplomatic and try not anger either party if you can.
+The talks are to last just two standard days. Not nearly enough time.
+As the first session is about to begin, you call the meeting to order.
+You: The session will commence now.
+While your clerks are sitting attentively, everyone else is still talking amongst themselves, even other committee members.
+You: Silence!
+...
+Though the exact meaning of your words might be altered by their automatic translators, your tone is enough to attract the attention of the other attendees. 
+You: Thank you.  
+You: Over the next two standard days, we would like to come to some sort of peace agreement concerning Calcarus I. 
+You: We would rather not have two of our most recent members annihilate each other over a piece of rock, would we?
+The human president rolls his eyes at this, a gesture that apparently is a means of expressing annoyance.
+You: Now, we will begin with opening statements on the matter of Calcarus I. President Hadoran, would you like to begin?
+Hadoran perks up at this.
+
+Hadoran: Certainly, chairman.
+The human stands and takes a breath before giving his speech
+Hadoran: Members of the committee, chairman, as you are all aware, humanity is a young civilisation. We had first travelled to our own moon less than half a millenium ago. 
+Hadoran: Only in the last hundred of our years have we encountered other intelligences out there.
+Hadoran: I myself was a young man when we joined the Galactic Council. I remember celebrating with my family and fellow citizens.
+Hadoran: It was a celebration of a new future of humanity. One that would be prosperous with our new neighbours.
+President Hadoran took a pause.
+He sighs.
+Hadoran: Unfortunately, some members of the council do not wish that to be the case.
+He stares at the cephalon leader.
+Hadoran: We were the first civilisation to send manned craft to Calcarus I. We were the first to settle the planet.
+Hadoran: By the conventions of colonisation under the Galactic Council, it is ours by law.
+Hadoran: Instead, these people...
+He gestures towards the cephalons.
+Hadoran: ...they decide to bomb our settlement and claim the planet for themselves.
+You: Please President Hadoran, no arguments with the other parties during the opening.
+Hadoran: We are humanity. We will not be bullied by some other civilisation just because they believe they are right.
+Hadoran: And we will not back down.
+<< set_sprite Hadoran happy >>
+The president sat down triumphantly.
+Some of the human attendees have stood up and are applauding, overwhelming the chamber with noise.
+You: Please. I would ask you to be quiet, or you will be removed.
+The humans continue to cheer, not looking that they'll stop any time soon.
+<< set_sprite Hadoran neutral >>
+<< set $attemptsForSilence = 0>>
+<< jump CallForSilence >>
+===
+
+title: CallForSilence
+position: -18,190
+---
+-> Remove those cheering
+    You summon guards to remove some of the crowd. They begin to quiet down after a little rough handling.
+    << set $humanHappiness = $humanHappiness - 5 >>
+    Hadoran: You can't do that, chairman.
+    You: Yes I can, as I am the one chairing this meeting, President Hadoran. Not you.
+    The human president slumps back into his chair.
+-> Call again for silence
+    << if $attemptsForSilence < 2 >>
+        You: I ask again, can you please keep quiet.
+    << else >>
+        You: For the last time. Silence!
+    << endif >>
+    << set $attemptsForSilence = $attemptsForSilence + 1 >>
+    << if $attemptsForSilence > 2 >>
+        The humans finally begin to quiet down, taking their seats.
+        The human president also sits down.
+    << else >>
+        The humans continue cheering
+        << jump CallForSilence >>
+    << endif >>
+<< jump Day1MorningAfterCallForSilence >>
+===
+
+title: Day1MorningAfterCallForSilence
+position: -332,71
+---
+This doesn't seem like it will go well.
+But you must continue.
+You: Well, Hive Leader Nai'thar. If you would like to give your opening remarks.
+The cephalon stands.
+Nai'thar: I will not resort to the theatrics of the human leader across from me and keep this short and to the point.
+Nai'thar: Firstly I would like to apologise to humanity for the bombing of their camp on Calcarus I.
+Nai'thar: Unfortunately, it was a rogue captain who has a particular hatred for humanity. He has since been punished accordingly.
+<< set_sprite Hadoran angry >>
+Hadoran: That's bullshit! That captain has probably just been moved to a different commission on some other ship.
+Hadoran: You people don't hold your own to account. 
+You: Please, President Hadoran. You will be able to argue your case in a short while.
+<< set_sprite Hadoran neutral >>
+The cephalon leader brushes aside the insult.
+Nai'thar: Anyway, the camp that the humans had built on Calcarus I was hardly a colony. It wasn't even self-sustaining.
+Nai'thar: If you read the conventions on colonisation properly, it states that a colony must be self-sustaining to be classed as such.
+Nai'thar: Since the settlement no longer exists, we believe it is free for cephalons, or any other civilisation, to colonise.
+The human president grumbled at this.
+Nai'thar: The Calcarus system is also considered a holy site by The Church of the Light, our civilisation's main religion.
+Nai'thar: We therefore also believe that cephalons have at least the priority to colonise any planets within the Calcarus system.
+Nai'thar: And with that, I conclude my arguments.
+The cephalon sat back down. No applause from others of his kind.
+You: Thank you, Hive Leader Nai'thar.
+You: Now, to the first order of business.
+The human president stood up.
+Hadoran: I would like to speak on the attack.
+-> Allow him to speak
+    << set $humanHappiness = $humanHappiness + 5 >>
+    You: Very well, President Haldoran. I understand that this a sensitive issue to humanity.
+    Hadoran: Of course it is sensitive, chairman. A hundred of our colonists died.
+    You: Of course.
+    Humans seem to care about every individual human life, regardless of whether they even met them before.
+    << jump AttackOnHumanSettlement >>
+-> Continue
+    << set $humanHappiness = $humanHappiness - 5 >>
+    You: We will get to that in a moment.
+    The human president sat down. 
+<< jump ClaimBySettlement >>
+===
+
+
+title: AttackOnHumanSettlement
+position: -193,-36
+---
+<< set $humanSettlementAttackDiscussed = true >>
+<< if $claimBySettlementDiscussed >>
+    You: Let's take a break before proceeding.
+    Attendees to the meeting began filing out of the chamber, both parties eyeing each other.
+    << set_time Time "Day 1 - Afternoon" >>
+    It's the second half of the first Day 1 of negotations and things are not going too well.
+    You: We will now discuss the the attack on the human's settlement on Calcarus I.
+    You: President Hadoran, if you wish to proceed.
+    The human president stood up.
+<< endif >>
+Hadoran: There is not much to say on this matter.
+Hadoran: The cephalons destroyed the legitimate colony of a member of the Galactic Council.
+Hadoran: Even if they are not tried for war crimes, their claim to Calcarus I must be forfeit.
+Nai'thar: As I mentioned in my opening remarks, the captain responsible was punished.
+Nai'thar: He did not execute the bombing on the command of the Cephalon Empire, therefore there is nothing we can be responsible for.
+Hadoran: I will concede that you personally, or any in your command other than the captain command the attack.
+Hadoran: However, surely you must still be responsible for those under your command?
+Nai'thar: If a human captain decided to bomb a settlement on their own accord, would you claim responsibility?
+Hadoran: Well, I certainly would as commander in chief. 
+<< set_sprite Hadoran smirk >>
+Hadoran: Fortunately for us, that has never been the case.
+<< set_sprite Hadoran frustrated >>
+<< set_sprite Nai'thar angry >>
+Both leaders continue arguing with each other, picking small flaws in each other's arguments.
+Well, at least they're discussing the matter.
+<< set_sprite Hadoran neutral >>
+<< wait 1 >>
+<< set_sprite Nai'thar neutral >>
+After another hour or so of heated debate, you call on them to stop.
+You: We must come to some sort of conclusion on this matter.
+You discuss with your fellow committee members.
+-> Cephalons are ultimately responsible for their rogue captain
+    You: This captain may have gone rogue as you claim.
+    You: However, they were still part of the cephalon's military at the time.
+    You: Ultimately, the leadership of the military are responsible for the attack and therefore the Cephalon Empire.
+    << set_sprite Nai'thar angry >>
+    The hive leader looked on in disbelief.
+    << set_sprite Hadoran happy >>
+    A smile crept on the human's face.
+    << set $alienHappiness = $alienHappiness - 50 >>
+    << set $humanHappiness = $humanHappiness + 20 >>
+    You: Therefore, the cephalons must forfeit their claim to Calcarus I. This meeting is adjourned.
+-> Cephalons are not responsible for the attack
+    You: I can sympathise with you, President Hadoran.
+    You: I understand that you wish whoever did this was held responsible.
+    You: However, it is not the cephalons as a whole that are responsible for the attack.
+    << set $humanHappiness = $humanHappiness - 20 >>
+    << set $alienHappiness = $alienHappiness + 5 >>
+    You: Their claim cannot be forfeited on this basis alone.
+
+<< set_sprite Nai'thar neutral >>
+<< set_sprite Hadoran neutral >>
+
+<< if $claimBySettlementDiscussed >>
+    << jump Day2 >>
+<< else >>
+    << jump ClaimBySettlement >>
+<< endif >>
+===
+
+title: ClaimBySettlement
+position: 113,-82
+---
+<< set $claimBySettlementDiscussed = true >>
+<< if $humanSettlementAttackDiscussed >>
+    You: Let's take a break before proceeding.
+    Attendees to the meeting began filing out of the chamber, both parties eyeing each other.
+    << fade_out Nai'thar >>
+    << wait 1 >>
+    << fade_out Hadoran >>
+    << set_time Time "Day 1 - Afternoon" >>
+    It's the second half of the first Day 1 of negotations and things are not going too well.
+    << fade_in Nai'thar >>
+    << wait 1 >>
+    << fade_in Hadoran >>
+<< endif >>
+You: We will now discuss claims by both parties to Calcarus I.
+You: First we will discuss claims concerning colonisation.
+You: While it is true that the first settlement on Calcarus I had been established by humans a year ago.
+You: It was not self-sustaining so does not quite qualify under the conventions of colonisation.
+<< set_sprite Hadoran angry >>
+Haldoran: It had barely been up for a standard year! It would have been self-sustaining within a decade.
+You: That may be the case, President Haldoran, but you will have to argue it.
+You take a pause.
+<< set_sprite Hadoran neutral >>
+You: It can also be said that the Calcarus system is within the sphere of cephalon control, just a few light years away.
+You: Therefore, it may not be colonised by the cephalon yet, but it may be said that is de facto under their control due to no other settlements.
+<< set_sprite Hadoran angry >>
+Haldoran: Because they blew it up!
+Nai'thar: A rogue captain bombed your settlement, President Haldoran. We've discussed this.
+<< set_sprite Nai'thar angry >>
+The two leaders continue arguing with each other.
+President Haldoran was able to present some evidence that the colony on human Calcarus I would have been self-sustaining, though within half a century rather than a decade.
+Minutes, then hours pass.
+<< set_sprite Hadoran neutral >>
+<< set_sprite Nai'thar neutral >>
+After the second hour, you call for order in the council chamber.
+You: We will have to decide on the matter.
+You turn to your other committee members.
+-> Humans can claim first settlement
+    << set $alienHappiness = $alienHappiness - 10 >>
+    << set $humanHappiness = $humanHappiness + 15 >>
+    You: It would seem like humanity has a stronger claim with their initial settlement.
+    << set $humanHappiness = $humanHappiness - 10 >>
+    You: However, we don't believe that this is sufficient to grant you exclusive access to the planet.
+    << set_sprite Hadoran angry >>
+    Hadoran: What? We have a settlement on the plane.
+    You: Had a settlement, President Hadoran.
+    Hadoran: Only because those squid things blew it up!
+    You: That may be the case, but as discussed, the cephalons are not responsible for the attack.
+    << set_sprite Hadoran neutral >>
+-> Cephalons can claim proximity
+    You: The Cephalons are indeed closer to the Calcarus I.
+    You: And the fact that there is no other settlement on Calcarus I.
+    << set_sprite Hadoran frustrated >>
+    Hadoran: Well, no longer.
+    You raise a three digit hand to hush the human leader.
+    You: Please, President Hadoran.
+    << set $alienHappiness = $alienHappiness + 10 >>
+    << set $humanHappiness = $humanHappiness - 5 >>
+    You: It would seem like the cephalons might have a claim.
+    << set $alienHappiness = $alienHappiness - 5 >>
+    You: However, this does not mean much if they have not settled it.
+    << set_sprite Hadoran smirk >>
+    << set_sprite Nai'thar angry >>
+    Nai'thar: Come on! So proximity means nothing?
+    You: Not quite nothing, hive leader. Only that you may have a slightly stronger claim.
+    << set_sprite Hadoran neutral >>
+    << set_sprite Nai'thar neutral >> 
+-> Neither has a stronger claim
+    << set $humanHappiness = $humanHappiness - 5 >>
+    << set $alienHappiness = $alienHappiness - 5 >>
+    You: On the basis of colonisation alone, neither party has a particularly strong claim.
+    You: Cephalons can claim proximity, though really that does not mean too much if you have not settled.
+    You: Humans can claim first settlement, arguably, but they even agree that it was not self-sustaining.
+    You: That is a condition in the conventions on colonisation.
+    << set_sprite Hadoran frustrated >>
+    << set_sprite Nai'thar angry >>
+    Neither side seemed to like that.
+    
+You: It must be concluded that settlement or proximity alone is not enough for either party to claim exclusive right to Calcarus I.
+<< set_sprite Hadoran neutral >>
+<< set_sprite Nai'thar neutral >> 
+
+<< if $humanSettlementAttackDiscussed >>
+    << jump Day2 >>
+<< else  >>
+    << jump AttackOnHumanSettlement >>
+<< endif >>
+===
+
+
+title: Day2
+position: -89,93
+---
+You: We now conclude today's proceedings.
+Some attendees begin talking to each other in their seats.
+They begin to file out of the council chamber.
+<< fade_out Nai'thar >>
+<< wait 1 >>
+<< fade_out Hadoran >>
+Still nowhere in terms of discussions.
+Well, we've got one day left. 
+<< set_time Time "Day 2 - Morning">>
+The morning of the final day. You think this is not going to go well.
+<< fade_in Nai'thar >>
+You got there early and there are some committee members already present as well as some of the cephalons.
+No humans though.
+An hour passes.
+<< set_sprite Hadoran angry >>
+<< fade_in Hadoran >>
+Suddenly, the doors burst open. Hadoran is walking towards Hive Leader Nai'thar. The other humans are following him.
+Hadoran: You squidfaces! You tried to assassinate me, didn't you?
+<< set_sprite Hadoran pointing >>
+He points a finger at the hive leader.
+Hadoran: I'll kill you!
+<< set_sprite Hadoran angry >>
+You: Guards, please. Restrain President Hadoran.
+<< set_sprite Hadoran frustrated >>
+Two of the guards manage to grab the president before he got close enough to the cephalon.
+They lead him to his seat.
+He pulls himself away from them but complies.
+You: We can discuss this now. Calmly.
+<< set_sprite Hadoran neutral >>
+You: You say the cephalons tried to assassinate you.
+<< set_sprite Hadoran frustrated >>
+Hadoran: Of course they did. Who else would?
+<< set_sprite Hadoran neutral >>
+Nai'thar: We have no reason to kill you, President Hadoran. What we would gain from it?
+Nai'thar: Your people will just elect a new president, and we'll still be arguing over Calcarus I.
+Nai'thar: If anything, it would be another member of the council who would do it, to get the two of us to go to war.
+<< set_sprite Hadoran frustrated >>
+Hadoran: Well if that isn't the biggest load of...
+<< set_sprite Hadoran neutral >>
+Hadoran: Hmm...
+Hadoran: You might have a point actually.
+They both seem to be becoming more reasonable.
+You: Thank you, Hive Leader Nai'thar.
+You: President Hadoran, how was the assassination attempt carried out?
+Hadoran: Some sort of lasgun. I saw them drop it.
+You: Where did you say this was?
+Hadoran: Just outside the council building.
+You: Right.
+You: Did you get a look at them?
+Hadoran: I saw them with my own eyes. Though they were wearing a robe with a hood.
+Hadoran: They could have been a cephalon, though now I'm not so sure.
+You: And then what happened?
+Hadoran: Well, one of my bodyguards spotted the assassin and pushed me out of the way.
+<< set_sprite Hadoran smirk >>
+The human smirked.
+Hadoran: Fortunately the assassin missed and hit a pillar. They then dropped their gun and ran off.
+You: Interesting.
+<< set_sprite Hadoran neutral >>
+You: I'm not sure what to make of this.
+You turn to the other committee members.
+-> The gun
+    You: You mentioned that the assassin dropped his gun.
+    Hadoran: That's right.
+    You: Security would have picked it up.
+    You: Can someone get me that gun, please?
+    One of the guards, Philos, shuffled out.
+    A few minutes later, he comes back carefully holding lasgun held under his arm.
+    You address the guard.
+    You: Do you know anything out this weapon?
+    Philos: Seen them before while on service. Looks like its of Teleran design, though they're trying to hide it.
+    Philos: Not a very good job. See, they've tried to remove the biometric equipment.
+    You can see the scar on the grip where the biometric equipment must have been before.
+    You: Hive Leader Nai'thar, would one your people be able to handle this weapon.
+    Nai'thar: I don't think so, it's too difficult to get a grip on it with our appendages.
+    You: Well, I think that settles at least that side of it.
+    << set_sprite Hadoran frustrated >>
+    Hadoran: Hold on, what's to say they didn't hire a Teleran to assassinate me?
+    << set_sprite Nai'thar laughing >>
+    Hive Leader Nai'thar had been chuckling to himself when he heard Philos describe the weapon, though from his mouth parts it sounds more like bubbling.
+    Hadoran: What's so funny?
+    The cephalon leader stopped laughing.
+    << set_sprite Nai'thar neutral >>
+    Nai'thar: You don't know much about the cephalons, do you?
+    Hadoran: Not much, no.
+    << set_sprite Hadoran angry >>
+    Hadoran: other than you're claiming Calcarus I for yourself and your people destroyed a human settlement there.
+    Nai'thar: We have been a sort of cold war with the Telerans for centuries.
+    Nai'thar: Of course they would try something like this to further drive a wedge between our two civilisations.
+    Nai'thar: They might be able to eliminate a rival, and another potential one if they're lucky.
+    President Hadoran thought for a moment.
+    << set_sprite Hadoran neutral >>
+    Hadoran: Oh...
+    You turn to the human president.
+    You: President Hadoran.
+    You: While we can't confirm who tried to assassinate you, we can say with high certainty that it wasn't the cephalons.
+    << set $alienHappiness = $alienHappiness + 10 >>
+    << set $humanHappiness = $humanHappiness + 5 >>
+    Hadoran: I'm sorry, Hive Leader. I shouldn't have jumped to conclusions.
+    Nai'thar: It's all right. I'm sure I would think the same if there was an attempt on my life during peace talks.
+-> The cephalons may have done it
+    You: It's not clear that the cephalons attempted to assassinate you, President Hadoran.
+    You: However, we can't rule it out.
+    You: We only have a few hours left so we should move on for now, though it will need to be addressed at some point.
+    << set $alienHappiness = $alienHappiness - 10 >>
+    << set $humanHappiness = $humanHappiness - 5 >>
+-> The cephalons did not do it
+    You: There's not sufficient evidence to condemn the cephalons on this matter.
+    The human president slammed a fist on the table.
+    << set_sprite Hadoran angry >>
+    Hadoran: Come on! Who else would want to kill me?
+    You shake your head.
+    You: Sorry, President Hadoran, but we do not have sufficient evidence.
+    << set $humanHappiness = $humanHappiness - 10 >>
+    Hadoran: Fine!
+    << set_sprite Hadoran neutral >>
+
+You: Well, with that settled, we'll be able to discuss other claims.
+You: I think we need a break, don't you?
+<< fade_out Nai'thar >>
+<< fade_out Hadoran >>
+<< set_time Time "Day 2 - Afternoon">>
+You come back from the short break.
+<< fade_in Hadoran >>
+<< wait 1 >>
+<< fade_in Nai'thar >>
+Only a few hours left. At least they seem to be getting along a little better.
+We might be able to do something.
+You: Now, we can proceed with the claim of the cephalons concerning Calcarus as a holy site.
+You: Hive Leader Nai'thar, would you like to start?
+Nai'thar: Well, The Church of Light, and Cephalon society in general, holds the Calcarus system with high regard.
+Nai'thar: It is much like Earth's Polaris in that it directly above one of our homeworld's poles.
+Nai'thar: As it is close to our home star system, it is also particularly bright. A cephalon infant can identify it.
+Nai'thar: This allowed our people to navigate at night for thousands of years.
+Nai'thar: We believed it was a gift to us from our god, the Allfather. Furthermore...
+<< set_sprite Hadoran frustrated >>
+Hadoran: Surely that's not a legitimate claim? You can't just have a claim to something because it's part of your religion.
+Nai'thar: The majority of your people may not believe in a religion, President Hadoran.
+Nai'thar: However, there are some civilisations that still do, and we hold Calcarus as something particularly sacred.
+Hadoran: I don't think that's relevant to the discussion. 
+Hadoran: Show me in the Galactic Council's laws that claiming something of religious significance automatically makes you entitled to it. 
+Again, the two leaders continued arguing with each other.
+<< jump Ending >>
+===
+
+title: Ending
+position: 155,54
+---
+<< set_sprite Hadoran angry >>
+Suddenly, President Haldoran slams his fists on the table, startling some of the attendees
+Hadoran: I've had enough of this!
+Hadoran: Calcarus is ours by right and no amount of negotiation is going to change that!
+<< set_sprite Nai'thar angry >>
+Nai'thar: No. It belongs to the Cephalon Empire!
+Hadoran: This meeting is over!
+Nai'thar: Fine!
+Both leaders make for a quick exit, their respective subjects marching after them.
+<< declare_war GameManager Both>>
+===
+
+title: HadoranDeclaresWar
+position: 140,-193
+---
+<< set_sprite Hadoran angry >>
+Suddenly, President Haldoran slams his fists on the table, startling some of the attendees.
+Hadoran: I've had enough of this!
+Hadoran: Calcarus is ours by right and no amount of negotiation is going to change that!
+President Hadoran and storms out of the council chamber.
+<< declare_war GameManager Hadoran>>
+===
+
+
+title: Nai'tharDeclaresWar
+position: 140,-193
+---
+<< set_sprite Nai'thar angry >>
+Hive Leader Nai'thar stands up.
+Nai'thar: These negotations are useless!
+Nai'thar: We're not going to get anywhere. Calcarus belongs to us!
+The cephalon quickly exits the council chamber.
+<< declare_war GameManager Nai'thar>>
+===

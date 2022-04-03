@@ -1,0 +1,5 @@
+﻿title: Program
+---
+<<declare $humanHappiness = 0>>
+<<declare $alienHappiness = 0>>
+===
